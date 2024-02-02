@@ -18,3 +18,8 @@ with col2:
     PageMaker including versions of Lorem Ipsum.
     """
     st.info(content)
+
+content2 = """
+Below you can find some of the apps I have build in Python. Feel free to contact me!
+"""
+st.write(content2)
