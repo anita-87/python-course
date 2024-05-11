@@ -1,4 +1,5 @@
 import requests
+import selectorlib
 
 URL = "https://programmer100.pythonanywhere.com/tours/"
 
@@ -10,5 +11,13 @@ def scrape(url):
     return source
 
 
+def extract(source):
+    extractor = selectorlib.Extractor.from_yaml_file("extract.yml")
+    value = extractor.extract(source)["tours"]
+    return value
+
+
 if __name__ == "__main__":
-    print(scrape(URL))
+    scrapped = scrape(URL)
+    extracted = extract(scrapped)
+    print(extracted)
